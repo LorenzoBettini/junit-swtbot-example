@@ -4,3 +4,5 @@ resolve "${projects.location}/mathutils.build/build.cquery"
 
 build --clean
 
+junit -l "mathutils.core.tests/MathUtilsTest.launch" --flatXML -o "${buckminster.output.root}/test.results/MathUtilsTest.launch.result.xml"
+junit -l "mathutils.ui.tests/MathUtilsWindowTest.launch" --flatXML -o "${buckminster.output.root}/test.results/MathUtilsWindowTest.launch.result.xml"

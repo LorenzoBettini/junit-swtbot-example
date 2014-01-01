@@ -3,5 +3,7 @@
     <cs:dependencies>
         <cs:dependency name="mathutils.core.tests" componentType="osgi.bundle"/>
         <cs:dependency name="mathutils.ui.tests" componentType="osgi.bundle"/>
+        <cs:dependency name="org.eclipse.rcp" componentType="eclipse.feature"/>
+        <cs:dependency name="org.eclipse.rcp.source" componentType="eclipse.feature"/>
     </cs:dependencies>
 </cs:cspec>

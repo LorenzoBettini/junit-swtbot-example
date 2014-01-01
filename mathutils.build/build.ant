@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Buckminster Headless - build
+
+	buckminster.home must be specified on the command line, e.g.,
+	 	ant -Dbuckminster.home=/home/bettini/buckminster -f build.ant
+
+	Properties:
+		WORKSPACE  			Eclipse workspace location, or hudson job workspace
+		build.root 			Where to build? WARNING: This folder will be cleaned up, so do not point to user.home or something important
+							Default: ${WORKSPACE}/buildroot
+		buckminster.home	Buckminster headless to use. See http://www.eclipse.org/buckminster/downloads.html
+		projects.location	Where to find projects to build?
+							Default: ${WORKSPACE}
+		eclipse.download	The base URL for all the repositories in the RMAP
+							Default: http://download.eclipse.org
+-->
+<project name="Buckminster Headless" default="buckminster">
+	<property name="WORKSPACE" location="${ant.file}/../../" />
+	
+	<import file="common.ant" />
+
+	<property name="releng.project" location="${projects.location}/mathutils.build"/>
+	<property name="commands.path" value="${releng.project}"/>
+
+	<property name="build.commands.file" value="${commands.path}/headless-build-commands.bmscript" />
+	<property name="build.properties" value="${releng.project}/buckminster.properties" />
+
+	<target name="buckminster" depends="common.cleanup,install.buckminster.headless" description="description">
+
+		<fail unless="buckminster.home" message="buckminster.home must be specified." />
+
+		<antcall target="buckminster-build" />
+	</target>
+
+	<target name="buckminster-build">
+		<run_buckminster commandsfile="${build.commands.file}" propertiesfile="${build.properties}" />
+		<echo message=" " />
+	</target>
+
+</project>

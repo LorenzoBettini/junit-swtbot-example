@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rm:rmap xmlns:rm="http://www.eclipse.org/buckminster/RMap-1.0"
+	xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0">
+
+	<rm:property key="projects.location" value="${workspace.root}" />
+
+	<rm:property key="git.clone.dest" value="${user.home}/git/junit-swtbot-example" />
+	<rm:property key="git.url" value="${user.home}/git/junit-swtbot-example" />
+
+	<rm:property key="eclipse.download" value="http://download.eclipse.org" />
+	<rm:property key="eclipse.target.platform" value="${eclipse.download}/releases/kepler" />
+	<rm:property key="swtbot.repository"
+		value="${eclipse.download}/technology/swtbot/releases/latest" />
+
+	<rm:locator pattern="^mathutils(?:\..+)?$"
+		searchPathRef="sources" />
+	
+	<rm:locator searchPathRef="eclipse" />
+
+	<rm:searchPath name="sources">
+		<rm:provider componentTypes="osgi.bundle,buckminster"
+			readerType="git">
+			<rm:property key="git.remote.uri" value="${git.url}" />
+			<rm:property key="git.auto.fetch" value="true" />
+			<rm:uri format="{0},{1}">
+				<bc:propertyRef key="git.clone.dest" />
+				<bc:propertyRef key="buckminster.component" />
+			</rm:uri>
+		</rm:provider>
+	</rm:searchPath>
+	
+	<rm:searchPath name="eclipse">
+		<rm:provider componentTypes="osgi.bundle,eclipse.feature"
+			readerType="p2" source="false">
+			<rm:property key="buckminster.source" value="false" />
+			<rm:uri format="{0}">
+				<bc:propertyRef key="swtbot.repository" />
+			</rm:uri>
+		</rm:provider>
+	
+		<rm:provider componentTypes="eclipse.feature,osgi.bundle"
+			readerType="p2" source="false" mutable="false">
+			<rm:property key="buckminster.source" value="false" />
+			<rm:property key="buckminster.mutable" value="false" />
+			<rm:uri format="{0}">
+				<bc:propertyRef key="eclipse.target.platform" />
+			</rm:uri>
+		</rm:provider>
+	</rm:searchPath>
+
+</rm:rmap>

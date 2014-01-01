@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cs:cspec xmlns:cs="http://www.eclipse.org/buckminster/CSpec-1.0" name="mathutils.build" componentType="buckminster" version="1.0.0">
+    <cs:dependencies>
+        <cs:dependency name="mathutils.core.tests" componentType="osgi.bundle"/>
+        <cs:dependency name="mathutils.ui.tests" componentType="osgi.bundle"/>
+    </cs:dependencies>
+</cs:cspec>

@@ -1,0 +1,6 @@
+setpref targetPlatformPath="${target.platform}"
+
+resolve "${projects.location}/mathutils.build/build.cquery"
+
+build --clean
+

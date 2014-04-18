@@ -15,6 +15,7 @@ import org.eclipse.swt.events.SelectionEvent;
 
 public class MathUtilsWindow {
 
+	public static final String MATH_UTILS_FACTORIAL = "MathUtils Factorial";
 	protected Shell shell;
 	private Text inputText;
 	private Text resultText;
@@ -29,6 +30,7 @@ public class MathUtilsWindow {
 		try {
 			MathUtilsWindow window = new MathUtilsWindow();
 			window.open();
+			window.eventLoop(Display.getDefault());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -38,15 +40,26 @@ public class MathUtilsWindow {
 	 * Open the window.
 	 */
 	public void open() {
-		Display display = Display.getDefault();
+		Display.getDefault();
 		createContents();
 		shell.open();
 		shell.layout();
+	}
+
+	/**
+	 * Run the SWT event loop until this shell is disposed.
+	 * @param display
+	 */
+	public void eventLoop(Display display) {
 		while (!shell.isDisposed()) {
 			if (!display.readAndDispatch()) {
 				display.sleep();
 			}
 		}
+	}
+
+	public Shell getShell() {
+		return shell;
 	}
 
 	/**
@@ -55,7 +68,7 @@ public class MathUtilsWindow {
 	protected void createContents() {
 		shell = new Shell();
 		shell.setSize(450, 300);
-		shell.setText("MathUtils Factorial");
+		shell.setText(MATH_UTILS_FACTORIAL);
 		shell.setLayout(new GridLayout(3, false));
 		
 		Label lblInput = new Label(shell, SWT.NONE);

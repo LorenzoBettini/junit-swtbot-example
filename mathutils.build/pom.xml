@@ -15,7 +15,7 @@
   
   <properties>
     <tycho-version>0.21.0</tycho-version>
-    <kepler-repo.url>http://download.eclipse.org/releases/kepler</kepler-repo.url>
+    <kepler-repo.url>http://download.eclipse.org/releases/luna</kepler-repo.url>
     <swtbot-repo.url>http://download.eclipse.org/technology/swtbot/releases/latest</swtbot-repo.url>
   </properties>
 

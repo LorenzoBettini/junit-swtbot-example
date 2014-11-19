@@ -15,16 +15,14 @@ import org.junit.BeforeClass;
 
 public abstract class AbstractMathUtilsWindowTest extends SWTBotTestCase {
 
-	protected SWTBot bot;
+	static Thread uiThread;
 	
-	protected static Thread uiThread;
-	
-	protected static Shell shell;
+	static Shell shell;
 	
 	private final static CyclicBarrier swtBarrier = new CyclicBarrier(2);
 	
 	@BeforeClass
-	public static void setupApp() {
+	public static synchronized void setupApp() {
 		if (uiThread == null) {
 			uiThread = new Thread(new Runnable() {
 

@@ -27,13 +27,9 @@ public class MathUtilsWindow {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		try {
-			MathUtilsWindow window = new MathUtilsWindow();
-			window.open();
-			window.eventLoop(Display.getDefault());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		MathUtilsWindow window = new MathUtilsWindow();
+		window.open();
+		window.eventLoop(Display.getDefault());
 	}
 
 	/**

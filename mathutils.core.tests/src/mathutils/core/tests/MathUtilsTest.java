@@ -1,20 +1,16 @@
 package mathutils.core.tests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 import mathutils.core.MathUtils;
 
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 public class MathUtilsTest {
 
 	private MathUtils mathUtils;
 	
-	@Rule
-	public ExpectedException exception = ExpectedException.none();
-
 	@Before
 	public void setUp() {
 		mathUtils = new MathUtils();

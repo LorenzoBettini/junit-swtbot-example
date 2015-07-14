@@ -31,7 +31,7 @@
 
 	<repositories>
 		<repository>
-			<id>kepler</id>
+			<id>luna</id>
 			<url>${luna-repo.url}</url>
 			<layout>p2</layout>
 		</repository>

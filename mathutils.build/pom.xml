@@ -15,8 +15,8 @@
 	</modules>
 
 	<properties>
-		<tycho-version>0.23.0</tycho-version>
-		<eclipse-repo.url>http://download.eclipse.org/releases/mars</eclipse-repo.url>
+		<tycho-version>1.0.0</tycho-version>
+		<eclipse-repo.url>http://download.eclipse.org/releases/neon</eclipse-repo.url>
 		<swtbot-repo.url>http://download.eclipse.org/technology/swtbot/releases/latest</swtbot-repo.url>
 		
 		<jacoco-version>0.5.8.201207111220</jacoco-version>
